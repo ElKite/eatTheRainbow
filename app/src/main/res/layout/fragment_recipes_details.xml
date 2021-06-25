@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.elkite.eattherainbow.features.recipes.details.RecipesDetailsFragmentDataBinding" />
+
+        <variable
+            name="actions"
+            type="com.elkite.eattherainbow.features.recipes.details.RecipesDetailsActionsFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".features.recipes.RecipesDetailsFragment">
+
+        <com.elkite.eattherainbow.tools.helpers.recyclerview.BaseRecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:onClick="@{() -> actions.showAddItemAlert(context)}"
+            android:src="@drawable/ic_add"
+            app:fabSize="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.elkite.eattherainbow.features.shopping.ShoppingFragmentDataBinding" />
+
+        <variable
+            name="actions"
+            type="com.elkite.eattherainbow.features.shopping.ShoppingFragmentActions" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/button">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/parentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".features.shopping.ShoppingFragment">
+
+                <com.elkite.eattherainbow.tools.helpers.recyclerview.BaseRecyclerView
+                    android:id="@+id/shoppingItemsRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:items="@{data.shoppingItems}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/cartHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/shopping_cart_header"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:visibility="@{data.cartItems.size() == 0 ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/shoppingItemsRecyclerview" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cartUncheckButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="@{() -> actions.unckeckAllCartItems()}"
+                    android:text="@string/shopping_cart_button_remove"
+                    android:textColor="@color/white"
+                    android:visibility="@{data.cartItems.size() == 0 ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toStartOf="@id/cartDeleteAllButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cartHeader" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cartDeleteAllButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:onClick="@{() -> actions.deleteAllCartItems()}"
+                    android:text="@string/shopping_cart_button_delete"
+                    android:textColor="@color/white"
+                    android:visibility="@{data.cartItems.size() == 0 ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@id/cartUncheckButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cartUncheckButton"
+                    app:layout_constraintTop_toTopOf="@id/cartUncheckButton" />
+
+                <com.elkite.eattherainbow.tools.helpers.recyclerview.BaseRecyclerView
+                    android:id="@+id/cartItemsRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:items="@{data.cartItems}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/cartUncheckButton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:onClick="@{() -> actions.goToSearchFragment()}"
+            android:src="@drawable/ic_add"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

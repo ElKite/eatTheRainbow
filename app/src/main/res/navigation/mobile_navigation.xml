@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.elkite.eattherainbow.features.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_recipes"
+        android:name="com.elkite.eattherainbow.features.recipes.RecipesFragment"
+        android:label="@string/title_recipes"
+        tools:layout="@layout/fragment_recipes">
+
+        <action
+            android:id="@+id/action_navigation_shopping_to_recipesDetailsFragment"
+            app:destination="@id/recipesDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipesDetailsFragment"
+        android:name="com.elkite.eattherainbow.features.recipes.details.RecipesDetailsFragment"
+        android:label="RecipesDetailsFragment" />
+
+    <fragment
+        android:id="@+id/navigation_shopping"
+        android:name="com.elkite.eattherainbow.features.shopping.ShoppingFragment"
+        android:label="@string/title_shopping"
+        tools:layout="@layout/fragment_shopping">
+
+        <action
+            android:id="@+id/action_navigation_shopping_to_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.elkite.eattherainbow.features.shopping.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_navigation_search_to_search_child"
+            app:destination="@+id/navigation_search_child">
+            <argument
+                android:name="category"
+                android:defaultValue="UNDEFINED"
+                app:argType="com.elkite.eattherainbow.entities.category.Category" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search_child"
+        android:name="com.elkite.eattherainbow.features.shopping.search.child.SearchChildFragment"
+        tools:layout="@layout/fragment_search_child">
+
+        <argument
+            android:name="category"
+            android:defaultValue="UNDEFINED"
+            app:argType="com.elkite.eattherainbow.entities.category.Category" />
+
+    </fragment>
+</navigation>

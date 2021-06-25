@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Eat the Rainbow</string>
+
+    <!-- TITLE -->
+    <string name="title_home">Planning</string>
+    <string name="title_recipes">Recettes</string>
+    <string name="title_shopping">Shopping</string>
+    <string name="title_search">Rechercher</string>
+
+    <!-- MENU -->
+    <string name="menu_shopping_search">Rechercher</string>
+
+    <!-- ALERT -->
+    <string name="alert_add_item_title">Ajouter un produit</string>
+
+    <!-- SNACKBAR -->
+    <string name="snack_bar_delete_item_desc">Produit supprimé de la liste</string>
+    <string name="snack_bar_delete_item_action_cancel">Annuler</string>
+
+    <!-- COMMON -->
+    <string name="common_product">Produit</string>
+    <string name="common_quantity">Quantité</string>
+    <string name="common_add">Ajouter</string>
+    <string name="common_cancel">Annuler</string>
+
+    <!-- FEATURE -->
+    <string name="shopping_cart_header">Panier</string>
+    <string name="shopping_cart_button_delete">Tout supprimer</string>
+    <string name="shopping_cart_button_remove">Tout décocher</string>
+
+    <!-- CATEGORIES -->
+    <string name="category_undefined">Non défini</string>
+    <string name="category_meat">Viandes</string>
+    <string name="category_vegetables">Légumes</string>
+    <string name="category_fruits">Fruits</string>
+    <string name="category_cereals">Céréales</string>
+    <string name="category_sport">Sport</string>
+    <string name="category_milks">Laits</string>
+
+
+</resources>

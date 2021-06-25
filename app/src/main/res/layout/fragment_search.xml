@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.elkite.eattherainbow.features.shopping.search.SearchFragmentDatabinding" />
+
+        <variable
+            name="actions"
+            type="com.elkite.eattherainbow.features.shopping.search.SearchFragmentActions" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <EditText
+            android:id="@+id/product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/common_product"
+            android:inputType="textAutoCorrect"
+            android:autofillHints="@string/common_product"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/common_quantity"
+            android:autofillHints="@string/common_quantity"
+            android:inputType="numberSigned"
+            app:layout_constraintTop_toBottomOf="@id/product" />
+
+        <Spinner
+            android:id="@+id/categoriesSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            app:layout_constraintTop_toBottomOf="@id/quantity" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_add"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/categoriesSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> actions.createShoppingItem()}"/>
+
+        <com.elkite.eattherainbow.tools.helpers.recyclerview.BaseRecyclerView
+            android:id="@+id/categoriesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:items="@{data.categories}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            app:layout_constraintTop_toBottomOf="@id/addButton"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+
+    <color name="category_vegetables">#44FF66</color>
+    <color name="category_fruits">#AAFF33</color>
+    <color name="category_meat">#FF0000</color>
+    <color name="category_undefined">#AAAAAA</color>
+    <color name="category_cereals">#AA4400</color>
+    <color name="category_sport">#AA44AA</color>
+    <color name="category_milks">#FFFFFF</color>
+
+</resources>
